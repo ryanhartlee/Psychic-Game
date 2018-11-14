@@ -1,0 +1,71 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Letter Guess</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+  </head>
+
+<body>
+    <div>
+        <h1>The Psychic Game</h1>
+        <p>Guess what letter I'm thinking of</p>
+        <br>
+        <p id="userWins"></p>
+        <br>
+        <p id="userLosses"></p>
+        <br>
+        <p id="guessLeft"></p>
+        <br>
+        <p id="guesses"></p>
+        </div>
+
+    <script type="text/javascript">
+        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 9;
+        var guesses = [];
+        
+        //not writing
+        var userWins = document.getElementById("userWins");
+        var userLosses = document.getElementById("userLosses");
+        var guessesRemaining = document.getElementById("guessLeft");
+        var userGuess = document.getElementById("guesses"); 
+        
+        //needs to randomize after a win or guessesRemaining===0
+        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        
+        
+        document.onkeyup = function (event) {
+            var userGuess = event.key;
+            //adds to array to display guess//
+            guesses.push(event.key);
+            
+                if (userGuess === computerGuess) {
+                    wins++;
+                }
+                //Breaks here//
+                if (guessesLeft === 0) {
+                    loss++;
+                }
+                if (userGuess !== computerGuess) {
+                    guessesLeft--;
+                }
+            
+                console.log("cpu guess " + computerGuess);
+                console.log("wins " + wins);
+                console.log("losses " + losses);
+                console.log("gl " + guessesLeft);
+                console.log(guesses);
+            }
+            
+            
+    </script>
+
+</body>
+</html>
