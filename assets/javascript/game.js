@@ -52,8 +52,3 @@ document.onkeyup = function (event) {
         document.getElementById("guessLeft").innerHTML = guessesLeft;
         document.getElementById("guesses").innerHTML = guesses; 
     }
-
-            
-    
-
-    
